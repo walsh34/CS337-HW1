@@ -1,6 +1,6 @@
 // Completed by Samuel Walsh
-#define DEFAULT_IN "/home/runner/Homework-1/infiles/"
-#define DEFAULT_OUT "/home/runner/Homework-1/outfiles/"
+#define DEFAULT_IN "infiles/"
+#define DEFAULT_OUT "outfiles/"
 
 char applyMode(char current, char mode[]);
 

@@ -6,9 +6,6 @@
 #define LOWER "lower"
 #define NOPUNC "nopunc"
 
-//#define EXCLUDED_CHARACTERS 33,34,39,40,41,44,45,46,58,63,91,93,123,125
-//#define EXCLUDED_CHARACTERS '.','?','!',',',':',';','-','{','}','[',']','(',')','‘','“','\'','"'
-
 // Returns null character if value should be excluded
 char applyMode(char current, char mode[]) {
 
@@ -21,13 +18,6 @@ char applyMode(char current, char mode[]) {
       current += 32;
     }
   } else if ((strcmp(mode,NOPUNC) == 0)) {
-    /*int excluded[] = {EXCLUDED_CHARACTERS};
-    for (int i =  excluded) { // set current to null char if punctuation is found
-      if (current == i) {
-        current = 0;
-        break;
-      }*/
-
       if (current == '.' || current == '?' || current == '!' || current == ',' || current == ':' || current == ';' || current == '-' || current == '{' || current == '}' || current == '[' || current == ']' || current == '(' || current == ')' || current == '\'' || current == '"') {
         current = 0;
     }
