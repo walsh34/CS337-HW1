@@ -5,7 +5,7 @@
 #include "util.h"
 
 #define FILE_SIZE 60
-#define READER_SIZE 60
+#define READER_SIZE 20
 
 int main(int argc, char *argv[]) {
   // Create buffers for file names
@@ -48,21 +48,20 @@ int main(int argc, char *argv[]) {
   	while(fgets(reader, READER_SIZE, input)!=NULL) { // fgets did not read anything new
 			// apply mode to all chars in reader
 			for (int i = 0; i < READER_SIZE; i++) {
-				char writeChar;
+				char writeChar = reader[i];
+				if (writeChar == 0) break; // if reached the end of file, stop writing
 				if(argc > 1)
-					writeChar = applyMode(reader[i], argv[1]);
+					writeChar = applyMode(writeChar, argv[1]);
 				else
-					writeChar = applyMode(reader[i], "none");
-				fprintf(output,"%c",writeChar);
+					writeChar = applyMode(writeChar, "none");
+				if (writeChar!=0) fprintf(output,"%c",writeChar);
 			}
 		}
 	}
   
-
   // Close files
-  //if (input != NULL) fclose(input);
-  //if (output != NULL) fclose(output);
-//*/
+  if (input != NULL) fclose(input);
+  if (output != NULL) fclose(output);
   return 0;
 }
 
