@@ -1,6 +1,7 @@
 // Completed by Samuel Walsh
 
 #include <string.h>
+
 #define UPPER "upper"
 #define LOWER "lower"
 #define NOPUNC "nopunc"
@@ -9,7 +10,7 @@
 //#define EXCLUDED_CHARACTERS '.','?','!',',',':',';','-','{','}','[',']','(',')','‘','“','\'','"'
 
 // Returns null character if value should be excluded
-char applyModee(char current, char mode[]) {
+char applyMode(char current, char mode[]) {
 
   if (strcmp(mode,UPPER) == 0) {
     if (current >= 97 && current <= 122) {
@@ -34,4 +35,3 @@ char applyModee(char current, char mode[]) {
 
   return current;
 }
-
