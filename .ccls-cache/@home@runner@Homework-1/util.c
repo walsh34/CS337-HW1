@@ -18,7 +18,7 @@ char applyMode(char current, char mode[]) {
     }
   } else if ((strcmp(mode,LOWER) == 0)) {
     if (current >= 65 && current <= 90) {
-      current -= 32;
+      current += 32;
     }
   } else if ((strcmp(mode,NOPUNC) == 0)) {
     /*int excluded[] = {EXCLUDED_CHARACTERS};
